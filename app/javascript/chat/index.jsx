@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import logger from 'redux-logger'
 import ReduxPromise from 'redux-promise';
-import { BrowserRouter, Route, Routes, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import App from './components/app';
 import messagesReducer from './reducers/messages_reducer';
@@ -27,9 +27,9 @@ const store = createStore(reducers, initialState, middlewares);
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>
-      <Routes>
-        <Route path="/channels/:channel" element={<App />} />
-      </Routes>
+      <Switch>
+        <Route path="/channels/:channel" component={App} />
+      </Switch>
     </BrowserRouter>
   </Provider>,
   chatContainer

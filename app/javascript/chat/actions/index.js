@@ -1,4 +1,4 @@
-const BASE_URL = 'api/v1';
+const BASE_URL = '/api/v1';
 
 export const FETCH_MESSAGES = 'FETCH_MESSAGES';
 export const MESSAGE_POSTED = 'MESSAGE_POSTED';
@@ -34,7 +34,6 @@ export function createMessage(channel, author, content) {
 
 export function selectChannel(channel) {
   return {
-    type: CHANNEL_SELECTED,
-    payload: channel
+    type: CHANNEL_SELECTED
   };
 }
