@@ -19,7 +19,7 @@ class MessageForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.createMessage(this.props.selectedChannel, this.props.currentUser, this.state.value);
+    this.props.createMessage(this.props.selectedChannel, this.state.value);
     this.setState({ value: '' }); // Reset message input
   }
 
@@ -27,7 +27,7 @@ class MessageForm extends Component {
     return (
       <form onSubmit={this.handleSubmit} className="channel-editor">
         <input
-          ref={(input) => { this.messageBox = input; }}
+          ref={(input) => this.messageBox = input}
           type="text"
           className="form-control"
           autoComplete="off"
