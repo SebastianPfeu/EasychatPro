@@ -8,9 +8,6 @@ export default function messagesReducer(state = null, action) {
       if (state.map(message => message.id).includes(action.payload.id)) {
         return state;
       } else {
-        console.log("++++++++++++");
-        console.log(action);
-        console.log("++++++++++++");
         const copiedState = state.slice(0);
         copiedState.push(action.payload);
         return copiedState;
