@@ -17,7 +17,6 @@ export function fetchMessages(channel) {
 export function createMessage(channel, content) {
   const url = `${BASE_URL}/channels/${channel}/messages`;
   const body = { content };
-  console.log(body);
   const csrfToken = document.querySelector('meta[name="csrf-token"]').attributes.content.value;
   const promise = fetch(url, {
     method: 'POST',
@@ -40,11 +39,4 @@ export function selectChannel() {
   return {
     type: CHANNEL_SELECTED
   };
-}
-
-export function appendMessage(message) {
-  return {
-    type: 'MESSAGE_POSTED',
-    payload: message
-  }
 }
